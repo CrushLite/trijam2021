@@ -21,6 +21,14 @@ var state = States.IDLE
 onready var curr_pos : Position2D = move_targets.get_child(0)
 
 
+var health = 10
+
+func damage(amt):
+	health -= amt
+	if health <= 0:
+		queue_free()
+
+
 func _ready():
 	pass
 	
@@ -54,7 +62,7 @@ func _ready():
 
 func _on_MoveTimer_timeout():
 #	move_to_position_closest_to_player()
-	clear_rocks()
+#	clear_rocks()
 	rock_throw()
 #	move_to_random_position()
 

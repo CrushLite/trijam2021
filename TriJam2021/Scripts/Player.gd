@@ -1,6 +1,9 @@
 extends KinematicBody2D
 
 
+signal died
+
+
 export var speed = 400
 export(PackedScene) var projectile
 
@@ -16,6 +19,14 @@ func _input(event):
 	var mouseclick = event as InputEventMouseButton
 	if mouseclick and mouseclick.pressed:
 		spawn_bullet()
+
+
+var health = 3
+func damage(amt):
+	health -= amt
+	if health <= 0:
+		emit_signal("died")
+		queue_free()
 
 
 func spawn_bullet():
