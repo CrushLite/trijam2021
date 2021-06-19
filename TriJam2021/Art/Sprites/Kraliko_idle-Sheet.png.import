@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Kraliko_walk-Sheet.png-c9c8c75dd3f39641686dcb34375eb7ff.stex"
+path="res://.import/Kraliko_idle-Sheet.png-26516d40c22df0eadc783d5e4686c529.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Kraliko_walk-Sheet.png"
-dest_files=[ "res://.import/Kraliko_walk-Sheet.png-c9c8c75dd3f39641686dcb34375eb7ff.stex" ]
+source_file="res://Art/Sprites/Kraliko_idle-Sheet.png"
+dest_files=[ "res://.import/Kraliko_idle-Sheet.png-26516d40c22df0eadc783d5e4686c529.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Kraliko_idle-Sheet.png-b526111db5e86ec986290ee52920f928.stex"
+path="res://.import/icon.png-df6bafeb8f0f5a872b74707f23c5f4ef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Kraliko_idle-Sheet.png"
-dest_files=[ "res://.import/Kraliko_idle-Sheet.png-b526111db5e86ec986290ee52920f928.stex" ]
+source_file="res://Art/icon.png"
+dest_files=[ "res://.import/icon.png-df6bafeb8f0f5a872b74707f23c5f4ef.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
