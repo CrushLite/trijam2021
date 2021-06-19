@@ -61,7 +61,7 @@ func _ready():
 
 
 func _on_MoveTimer_timeout():
-#	move_to_position_closest_to_player()
+	move_to_position_closest_to_player()
 #	clear_rocks()
 	rock_throw()
 #	move_to_random_position()
