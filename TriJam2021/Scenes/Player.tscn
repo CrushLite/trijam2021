@@ -16,5 +16,6 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
+animation = "Idle"
 
 [node name="Bullets" type="Node" parent="."]

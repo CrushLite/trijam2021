@@ -36,31 +36,31 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 tile_set = SubResource( 2 )
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 65536, 0, 0, 65551, 0, 0, 131072, 0, 0, 131087, 0, 0, 196608, 0, 0, 196623, 0, 0, 262144, 0, 0, 262159, 0, 0, 327680, 0, 0, 327695, 0, 0, 393216, 0, 0, 393231, 0, 0, 458752, 0, 0, 458767, 0, 0, 524288, 0, 0, 524303, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0 )
+tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, 65535, 0, 0, 8, 0, 0, 131071, 0, 0, 65544, 0, 0, 196607, 0, 0, 131080, 0, 0, 262143, 0, 0, 196616, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 457.351, 303.641 )
+position = Vector2( 248.809, 207.779 )
 collision_layer = 2
 collision_mask = 5
 
 [node name="Zombie" parent="." instance=ExtResource( 2 )]
-position = Vector2( 454.831, 137.331 )
+position = Vector2( 74.7462, 53.2417 )
 player_path = NodePath("../Player")
 move_targets_path = NodePath("../MoveTargets")
 
 [node name="MoveTargets" type="Node" parent="."]
 
 [node name="Pos1" type="Position2D" parent="MoveTargets"]
-position = Vector2( 224.266, 138.591 )
+position = Vector2( 74.5863, 53.6607 )
 
 [node name="Pos2" type="Position2D" parent="MoveTargets"]
-position = Vector2( 403.175, 137.331 )
+position = Vector2( 156.792, 56.6053 )
 
 [node name="Pos3" type="Position2D" parent="MoveTargets"]
-position = Vector2( 563.184, 139.851 )
+position = Vector2( 234.394, 57.4433 )
 
 [node name="Pos4" type="Position2D" parent="MoveTargets"]
-position = Vector2( 701.776, 144.891 )
+position = Vector2( 317.486, 55.7558 )
 
 [node name="Pos5" type="Position2D" parent="MoveTargets"]
-position = Vector2( 834.067, 141.111 )
+position = Vector2( 411.096, 56.1805 )

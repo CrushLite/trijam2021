@@ -20,4 +20,5 @@ animation = "idle"
 [node name="Bullets" type="Node" parent="."]
 
 [node name="MoveTimer" type="Timer" parent="."]
+autostart = true
 [connection signal="timeout" from="MoveTimer" to="." method="_on_MoveTimer_timeout"]
