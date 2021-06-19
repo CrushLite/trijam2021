@@ -5,17 +5,20 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 24.7188
+radius = 9.06612
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 3 )
 projectile = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 8.81945 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
-animation = "Idle"
+animation = "Walk"
+frame = 3
+playing = true
 
 [node name="Bullets" type="Node" parent="."]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Zombie.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Art/icon.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Rock.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -30,6 +31,9 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 0/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 220.175, 70.6953 )
+
 [node name="World" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -38,15 +42,11 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, 65535, 0, 0, 8, 0, 0, 131071, 0, 0, 65544, 0, 0, 196607, 0, 0, 131080, 0, 0, 262143, 0, 0, 196616, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 248.809, 207.779 )
-collision_layer = 2
-collision_mask = 5
+[node name="RockSpawnArea" type="Area2D" parent="."]
+position = Vector2( 249.746, 162.293 )
 
-[node name="Zombie" parent="." instance=ExtResource( 2 )]
-position = Vector2( 74.7462, 53.2417 )
-player_path = NodePath("../Player")
-move_targets_path = NodePath("../MoveTargets")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RockSpawnArea"]
+shape = SubResource( 3 )
 
 [node name="MoveTargets" type="Node" parent="."]
 
@@ -64,3 +64,21 @@ position = Vector2( 317.486, 55.7558 )
 
 [node name="Pos5" type="Position2D" parent="MoveTargets"]
 position = Vector2( 411.096, 56.1805 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Rocks" type="YSort" parent="YSort"]
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 248.809, 207.779 )
+collision_layer = 2
+collision_mask = 5
+
+[node name="Zombie" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 74.7462, 53.2417 )
+player_path = NodePath("../Player")
+move_targets_path = NodePath("../../MoveTargets")
+rock_spawn_area_path = NodePath("../../RockSpawnArea")
+rocks_path = NodePath("../Rocks")
+rock = ExtResource( 4 )
+rocks_to_spawn = 4
