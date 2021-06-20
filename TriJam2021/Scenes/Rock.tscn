@@ -94,6 +94,7 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
+animation = "Ground"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Fall = SubResource( 2 )
