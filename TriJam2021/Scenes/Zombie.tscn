@@ -16,8 +16,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "Smash"
-frame = 8
-playing = true
 
 [node name="Bullets" type="Node" parent="."]
 
