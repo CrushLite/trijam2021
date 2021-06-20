@@ -8,6 +8,9 @@ export var speed = 400
 export(PackedScene) var projectile
 
 
+var health = 1
+
+
 func _physics_process(delta):
 	var axis = _get_input_axis()
 	move_and_slide(speed * axis)
@@ -21,7 +24,6 @@ func _input(event):
 		spawn_bullet()
 
 
-var health = 3
 func damage(amt):
 	health -= amt
 	if health <= 0:

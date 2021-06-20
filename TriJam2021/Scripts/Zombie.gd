@@ -66,6 +66,7 @@ func _ready():
 func _on_MoveTimer_timeout():
 	move_to_position_closest_to_player()
 #	clear_rocks()
+	$AnimatedSprite.play("Rock Throw")
 	rock_throw()
 #	move_to_random_position()
 
@@ -172,3 +173,8 @@ func get_placement_pos(area_pos: Vector2, area_size: Vector2, obj_size: Vector2,
 #		var obj_size := Vector2(2, 2)
 #		var placement_pos := get_placement_pos(area_pos, area_size, obj_size, true)
 #		print("placement_pos: ", placement_pos)
+
+
+func _on_AnimatedSprite_animation_finished():
+	$AnimatedSprite.play("idle")
+	pass # Replace with function body.
