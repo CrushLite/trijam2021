@@ -15,3 +15,9 @@ func _on_Area2D_body_entered(body):
 		body.damage(damage_amt)
 	queue_free()
 	pass # Replace with function body.
+
+
+func _on_Area2D_area_entered(area):
+	print("area entered", area.name)
+	queue_free()
+	pass # Replace with function body.
