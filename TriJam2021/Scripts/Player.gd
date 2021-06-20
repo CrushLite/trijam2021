@@ -35,8 +35,9 @@ func _input(event):
 func damage(amt):
 	health -= amt
 	if health <= 0:
-		emit_signal("died")
-		queue_free()
+#		emit_signal("died")
+#		queue_free()
+		get_tree().reload_current_scene()
 
 
 func spawn_bullet():

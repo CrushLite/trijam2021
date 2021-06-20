@@ -16,21 +16,23 @@ onready var move_targets = get_node(move_targets_path) as Node
 onready var rock_spawn_area = get_node(rock_spawn_area_path) as Area2D
 onready var rocks = get_node(rocks_path) as YSort
 onready var health_bar = get_node(health_bar_path) as TextureProgress
+onready var curr_pos : Position2D = move_targets.get_child(0)
 
 
 enum States { IDLE, SLASH, DASH }
 var state = States.IDLE
 
-onready var curr_pos : Position2D = move_targets.get_child(0)
 
 
 var health = 10
+
 
 func damage(amt):
 	health -= amt
 	health_bar.value = health
 	if health <= 0:
 		queue_free()
+		get_tree().reload_current_scene()
 
 
 func _ready():
@@ -55,8 +57,7 @@ func _on_MoveTimer_timeout():
 #		rock_throw()
 	else:
 		move_to_position_closest_to_player()
-		spawn_rock_wave()
-		$MoveTimer.start()
+		$AnimatedSprite.play("Smash")
 #	move_to_random_position()
 
 
@@ -167,6 +168,10 @@ func get_placement_pos(area_pos: Vector2, area_size: Vector2, obj_size: Vector2,
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation == "Rock Throw":
 		rock_throw()
-		$AnimatedSprite.play("idle")
 		$MoveTimer.start()
+	if $AnimatedSprite.animation == "Smash":
+		spawn_rock_wave()
+		$MoveTimer.start()
+	$AnimatedSprite.play("idle")
+	
 	pass # Replace with function body.
