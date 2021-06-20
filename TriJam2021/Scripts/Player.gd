@@ -13,6 +13,14 @@ var health = 1
 
 func _physics_process(delta):
 	var axis = _get_input_axis()
+	
+	
+	if axis.length() > 0:
+		$AnimatedSprite.flip_h = axis.x < 0
+		$AnimatedSprite.play("Walk")
+	else:
+		$AnimatedSprite.play("Idle")
+		
 	move_and_slide(speed * axis)
 
 
@@ -27,8 +35,9 @@ func _input(event):
 func damage(amt):
 	health -= amt
 	if health <= 0:
-		emit_signal("died")
-		queue_free()
+#		emit_signal("died")
+#		queue_free()
+		get_tree().reload_current_scene()
 
 
 func spawn_bullet():
