@@ -9,6 +9,7 @@ export(NodePath) var health_bar_path
 export(PackedScene) var rock
 export(int, 1, 5, 1) var rocks_to_spawn = 1
 
+onready var rock_wave = preload("res://Scenes/SlamWave.tscn")
 
 onready var player = get_node(player_path) as KinematicBody2D
 onready var move_targets = get_node(move_targets_path) as Node
@@ -36,38 +37,26 @@ func _ready():
 	pass
 	
 	
-#
-#
-#func _process(delta):
-#	match state:
-#		States.IDLE:
-#			idle()
-#		States.SLASH:
-#			slash()
-#		States.DASH:
-#			dash()
-#
-#
-#func idle():
-#	$AnimatedSprite.play("idle")
-#	pass
-#
-#
-#func dash():
-#	pass
-#
-#
-#func slash():
-#	pass
 
-
+func spawn_rock_wave():
+	var rrock_wave = rock_wave.instance()
+	rrock_wave.global_position = global_position
+	# rotate to downwards
+	rrock_wave.speed = 200
+	rrock_wave.rotation = PI/2
+	$Bullets.add_child(rrock_wave)
 
 
 func _on_MoveTimer_timeout():
-	move_to_position_closest_to_player()
 #	clear_rocks()
-	$AnimatedSprite.play("Rock Throw")
-	rock_throw()
+	randomize()
+	if randi() % 2 == 0: 
+		$AnimatedSprite.play("Rock Throw")
+#		rock_throw()
+	else:
+		move_to_position_closest_to_player()
+		spawn_rock_wave()
+		$MoveTimer.start()
 #	move_to_random_position()
 
 
@@ -176,5 +165,8 @@ func get_placement_pos(area_pos: Vector2, area_size: Vector2, obj_size: Vector2,
 
 
 func _on_AnimatedSprite_animation_finished():
-	$AnimatedSprite.play("idle")
+	if $AnimatedSprite.animation == "Rock Throw":
+		rock_throw()
+		$AnimatedSprite.play("idle")
+		$MoveTimer.start()
 	pass # Replace with function body.
