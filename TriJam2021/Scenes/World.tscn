@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Zombie.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Art/icon.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Rock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Art/Sprites/shadow.png" type="Texture" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -80,5 +81,23 @@ player_path = NodePath("../Player")
 move_targets_path = NodePath("../../MoveTargets")
 rock_spawn_area_path = NodePath("../../RockSpawnArea")
 rocks_path = NodePath("../Rocks")
+health_bar_path = NodePath("../../ZombieHealth")
 rock = ExtResource( 4 )
 rocks_to_spawn = 4
+
+[node name="ZombieHealth" type="TextureProgress" parent="."]
+margin_left = 115.614
+margin_top = 7.29601
+margin_right = 349.614
+margin_bottom = 28.296
+max_value = 10.0
+value = 10.0
+texture_progress = ExtResource( 5 )
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}

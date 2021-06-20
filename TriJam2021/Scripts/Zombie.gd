@@ -5,6 +5,7 @@ export(NodePath) var player_path
 export(NodePath) var move_targets_path
 export(NodePath) var rock_spawn_area_path
 export(NodePath) var rocks_path
+export(NodePath) var health_bar_path
 export(PackedScene) var rock
 export(int, 1, 5, 1) var rocks_to_spawn = 1
 
@@ -13,6 +14,7 @@ onready var player = get_node(player_path) as KinematicBody2D
 onready var move_targets = get_node(move_targets_path) as Node
 onready var rock_spawn_area = get_node(rock_spawn_area_path) as Area2D
 onready var rocks = get_node(rocks_path) as YSort
+onready var health_bar = get_node(health_bar_path) as TextureProgress
 
 
 enum States { IDLE, SLASH, DASH }
@@ -25,6 +27,7 @@ var health = 10
 
 func damage(amt):
 	health -= amt
+	health_bar.value = health
 	if health <= 0:
 		queue_free()
 
